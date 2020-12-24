@@ -12,6 +12,8 @@ import ResellerHomeScreen from '../screens/resellersScreens/resellerHomeScreen';
 import MarketerHomeScreen from '../screens/marketersScreens/marketerHomeScreen';
 
 
+import LoginScreen from '../screens/authentification/login';
+import SignupScreen from '../screens/authentification/signup';
 
 const marketerHomeElements = {
     Magasin : {
@@ -71,8 +73,9 @@ const BmsNavigation = createStackNavigator({
 
  
  const MainNavigation = createSwitchNavigator({
-
-        Main: BmsNavigation
+     navigation : BmsNavigation ,
+        Main: LoginScreen,
+        Signup:SignupScreen
  })
  
 
