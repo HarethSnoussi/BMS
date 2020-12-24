@@ -1,13 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import BmsNavigation from './navigation/bmsNavigation';
+import {createStore,combineReducers,applyMiddleware} from 'redux';
+import ReduxThunk from "redux-thunk";
+
+import {Provider} from 'react-redux';
+import {enableScreens} from 'react-native-screens';
+import {AppLoading} from 'expo';
 
 export default function App() {
+
+
+//   const rootReducer = combineReducers({
+   
+//   });
+
+// const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <BmsNavigation />
   );
 }
 
