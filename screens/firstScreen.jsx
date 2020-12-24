@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { StyleSheet, Text, View , Picker,Image, Dimensions , ActivityIndicator,TextInput, KeyboardAvoidingView,TouchableWithoutFeedback,Keyboard} from 'react-native';
+import { StyleSheet, Text, View ,Button,Image, Dimensions , ActivityIndicator,TextInput, KeyboardAvoidingView,TouchableWithoutFeedback,Keyboard} from 'react-native';
 
 
 
@@ -12,6 +13,7 @@ const FirstScreen = (props) =>{
     return (
         <View style={styles.container}>
                 <Text>Open  up App.js to start working on your app!</Text>
+                <Button  title ="next"  onPress = {()=> props.navigation.navigate("MarketerHome") }/>
                 
         </View>
 
