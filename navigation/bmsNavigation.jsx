@@ -8,8 +8,8 @@ import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom
 
 import {Ionicons,  MaterialIcons,Foundation} from "@expo/vector-icons";
 import FirstScreen from '../screens/firstScreen';
-
-
+import LoginScreen from '../screens/authentification/login';
+import SignupScreen from '../screens/authentification/signup';
 
 //Main Stack Navigator
 const BmsNavigation = createStackNavigator({
@@ -20,7 +20,8 @@ const BmsNavigation = createStackNavigator({
  
  const MainNavigation = createSwitchNavigator({
 
-        Main: BmsNavigation
+        Main: LoginScreen,
+        Signup:SignupScreen
  })
  
 
