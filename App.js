@@ -8,12 +8,7 @@ import ReduxThunk from "redux-thunk";
 import {Provider} from 'react-redux';
 import {enableScreens} from 'react-native-screens';
 import {AppLoading} from 'expo';
-const fetchFonts = () =>{
-  return Font.loadAsync({
-     'poppins': require('./assets/fonts/Poppins-Regular.ttf'),
-     'poppins-bold': require('./assets/fonts/Poppins-Bold.ttf')
-  });
-};
+
 
 export default function App() {
 
@@ -23,16 +18,7 @@ export default function App() {
 //   });
 
 // const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-const [fontLoaded, setFontLoaded] = useState(false);
 
-if(!fontLoaded){
-  return(
-    <AppLoading 
-     startAsync={fetchFonts}
-     onFinish={()=> setFontLoaded(true)}
-    />
-  )
-}
   return (
     <BmsNavigation />
   );

@@ -6,8 +6,8 @@ import {Platform} from 'react-native';
 import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs"
 
 
-import {AntDesign} from "@expo/vector-icons";
-import FirstScreen from '../screens/firstScreen';
+import {AntDesign,MaterialIcons} from "@expo/vector-icons";
+
 import ResellerHomeScreen from '../screens/resellersScreens/resellerHomeScreen';
 import MarketerHomeScreen from '../screens/marketersScreens/marketerHomeScreen';
 
@@ -40,7 +40,7 @@ const marketerHomeElements = {
         tabBarLabel : "Profile" ,
         tabBarColor : "#fff",
         tabBarIcon : ({tintColor}) => {
-          return( <AntDesign name="home"  
+          return( <MaterialIcons name="person-outline"  
           size = {22} color ={tintColor}/>);
             },  
     },
@@ -113,7 +113,7 @@ const marketerHomeTabs = createMaterialBottomTabNavigator(marketerHomeElements,
 
 //Main Stack Navigator
 const BmsNavigation = createStackNavigator({
-    FirstScreen : FirstScreen ,
+    
     MarketerHome : marketerHomeTabs ,
     ResellerHomeScreen : ResellerHomeScreen,
   
@@ -122,9 +122,10 @@ const BmsNavigation = createStackNavigator({
 
  
  const MainNavigation = createSwitchNavigator({
+  Main: LoginScreen,
+  Signup:SignupScreen,
      navigation : BmsNavigation ,
-        Main: LoginScreen,
-        Signup:SignupScreen
+        
  })
  
 

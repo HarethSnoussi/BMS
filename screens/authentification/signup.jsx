@@ -296,7 +296,7 @@ const sendCode = async () => {
                 
                 { !isSignup?<View style={styles.loginContainer}>
                   <Text style={styles.doYouHaveAnAccount}>Avez-vous déjà un compte? </Text>
-                  <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}>
+                  <TouchableOpacity onPress={()=>props.navigation.navigate('Main')}>
                     <Text style={styles.loginText}>Se connecter</Text>
                   </TouchableOpacity>
                 </View>:undefined}
@@ -357,7 +357,6 @@ const styles = StyleSheet.create({
   },
   slogan:{
     fontSize:screen.width/20,
-    fontFamily:'poppins-bold',
     color:'#FFF',
     paddingTop:screen.width/72
   },
@@ -368,7 +367,6 @@ const styles = StyleSheet.create({
   },
   labelButton:{
     color:'#FFF',
-    fontFamily:'poppins',
     fontSize:screen.width/22.5,
     textTransform:null,
    },
@@ -395,12 +393,11 @@ const styles = StyleSheet.create({
   },
   doYouHaveAnAccount:{
     fontSize:14,
-    fontFamily:'poppins',
     color:'#fff'
   },
   loginText:{
     fontSize:screen.width/25.7,
-    fontFamily:'poppins-bold',
+    fontWeight:'bold',
     color:Colors.secondary
   },
   loader: {
@@ -416,7 +413,7 @@ const styles = StyleSheet.create({
     fontSize:screen.width/32.7,
     paddingTop:screen.width/36,
     alignSelf:'center',
-    fontFamily:'poppins-bold'
+    fontWeight:'bold'
   },
   phoneNumber:{
     fontSize:screen.width/24,
