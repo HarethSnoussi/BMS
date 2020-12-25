@@ -35,7 +35,7 @@ const ResellerHomeScreen = (props) =>{
 
 
                 <View style = {{width : "40%" ,height:"100%"}}>
-                   <Image source ={ require ("../../assets/Prise_intérepteur.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
+                   <Image source ={ require ("../../assets/priseinterepteur.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
 
                 </View>
 

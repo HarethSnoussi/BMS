@@ -23,16 +23,7 @@ export default function App() {
 //   });
 
 // const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-const [fontLoaded, setFontLoaded] = useState(false);
 
-if(!fontLoaded){
-  return(
-    <AppLoading 
-     startAsync={fetchFonts}
-     onFinish={()=> setFontLoaded(true)}
-    />
-  )
-}
   return (
     <BmsNavigation />
   );

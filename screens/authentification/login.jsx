@@ -225,7 +225,6 @@ const styles = StyleSheet.create({
   },
   callToAction:{
     fontSize:screen.width/28,
-    fontFamily:'poppins',
     color:'#323446'
   },
   inputsContainer:{
@@ -240,7 +239,6 @@ const styles = StyleSheet.create({
   },
   labelButton:{
     color:'#FFF',
-    fontFamily:'poppins',
     fontSize:screen.width/22.5,
     textTransform:null,
    },
@@ -253,7 +251,6 @@ const styles = StyleSheet.create({
    },
   forgotPassword:{
     fontSize:screen.width/26,
-    fontFamily:'poppins',
     color:'#323446',
     alignSelf:'center',
     paddingTop:screen.width/24
@@ -265,12 +262,10 @@ const styles = StyleSheet.create({
   },
   doYouHaveAnAccount:{
     fontSize:screen.width/28,
-    fontFamily:'poppins',
     color:'grey'
   },
   signupText:{
     fontSize:screen.width/28,
-    fontFamily:'poppins-bold',
     color:Colors.green
   }
   });
