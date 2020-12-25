@@ -44,8 +44,8 @@ const SignupScreen = (props) =>{
   //States for complex information textInputs
   const [isSignup,setIsSignup] = useState(false);
   const [wilaya,setWilaya] = useState(undefined);
-  const sexTypes= ['Sexe','Homme','Femme'];
-  const [sex,setSex] = useState(undefined);
+  const levelTypes= ['Fonction','Chef','Agent','Gérant'];
+  const [level,setLevel] = useState(undefined);
   const [isEye,setIsEye]=useState(false);
 
    const eye=()=>{
@@ -57,18 +57,18 @@ const SignupScreen = (props) =>{
   
 
 //picker only iOS gender function 
-const onPressSex = () =>{
- const sexIOS = ['Homme','Femme'];    
+const onPressLevel = () =>{
+ const levelIOS = ['Homme','Femme'];    
  ActionSheetIOS.showActionSheetWithOptions(
    {
-     options: sexIOS,
+     options: levelIOS,
      cancelButtonIndex: -1
    },
    buttonIndex => {
      if (buttonIndex === -1) {
        // cancel action
      } else {
-      setSex(sexIOS[buttonIndex]);
+      setLevel(levelIOS[buttonIndex]);
      } 
    }
  );  
@@ -114,7 +114,7 @@ const signupHandler = async () => {
 
 
 
-if(formState.formIsValid && sex!==sexTypes[0] && wilaya!==undefined && sex!==undefined){
+if(formState.formIsValid && level!==levelTypes[0] && wilaya!==undefined && level!==undefined){
  
 }
 
@@ -211,20 +211,20 @@ const sendCode = async () => {
                       placeholderTextColor='rgba(50,52,70,0.4)'
                       inputStyle={{fontSize:screen.width/24}}
                     />
-                <View style={{ width:'100%',borderWidth:1,borderRadius:screen.width/14.4,backgroundColor:'#d3d3d3',borderColor:sex!==sexTypes[0]?'#d3d3d3':Colors.primary,marginVertical:screen.width/120,height:screen.width/8,justifyContent:'center'}}>
+                <View style={{ width:'100%',borderWidth:1,borderRadius:screen.width/14.4,backgroundColor:'#d3d3d3',borderColor:level!==levelTypes[0]?'#d3d3d3':Colors.primary,marginVertical:screen.width/120,height:screen.width/8,justifyContent:'center'}}>
                 {Platform.OS === 'android' ? 
                     <Picker
-                    selectedValue={sex}
-                    onValueChange={itemValue => setSex(itemValue)}
+                    selectedValue={level}
+                    onValueChange={itemValue => setLevel(itemValue)}
                     style={{fontSize:screen.width/30,color:Colors.blue,marginHorizontal:screen.width/25.7}}
                     >
-                    {sexTypes.map(el=> <Picker.Item label={el} value={el} key={el} />)}
+                    {levelTypes.map(el=> <Picker.Item label={el} value={el} key={el} />)}
                     </Picker> :
-                    <TouchableOpacity onPress={onPressSex} style={{ width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:screen.width/21.2,paddingRight:screen.width/14.4}}>
+                    <TouchableOpacity onPress={onPressLevel} style={{ width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:screen.width/21.2,paddingRight:screen.width/14.4}}>
                     <Text  style={{fontSize:screen.width/30,color:Colors.blue,fontSize:screen.width/24,fontWeight:'500'}}>
-                      {sex?sex:sexTypes[0]}
+                      {level?level:levelTypes[0]}
                     </Text>
-                    <Ionicons name="ios-arrow-down" size={screen.width/15} color={Colors.blue} onPress={onPressSex} />
+                    <Ionicons name="ios-arrow-down" size={screen.width/15} color={Colors.blue} onPress={onPresLevel} />
                     </TouchableOpacity>}
                 </View>
            
@@ -264,7 +264,7 @@ const sendCode = async () => {
                   title="Confirmer"
                   titleStyle={styles.labelButton}
                   buttonStyle={styles.confirmedButtonStyle}
-                  onPress={()=>props.navigation.navigate()}
+                  onPress={()=>props.navigation.navigate('MarketerHome')}
                   ViewComponent={LinearGradient} 
                   linearGradientProps={{
                       colors: [Colors.secondary, Colors.secondary],
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
     textTransform:null,
    },
    buttonStyle:{
-    borderColor:'#fd6c57',
+    borderColor:Colors.primary,
     width:'100%',
     borderRadius:screen.width/18,
     height:screen.width/8,
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
     marginTop:screen.width/24
    },
    confirmedButtonStyle:{
-    borderColor:'#fd6c57',
+    borderColor:Colors.primary,
     width:'80%',
     borderRadius:screen.width/18,
     height:screen.width/8,
