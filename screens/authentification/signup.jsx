@@ -216,12 +216,12 @@ const sendCode = async () => {
                     <Picker
                     selectedValue={sex}
                     onValueChange={itemValue => setSex(itemValue)}
-                    style={{fontFamily:'poppins',fontSize:screen.width/30,color:Colors.blue,marginHorizontal:screen.width/25.7}}
+                    style={{fontSize:screen.width/30,color:Colors.blue,marginHorizontal:screen.width/25.7}}
                     >
                     {sexTypes.map(el=> <Picker.Item label={el} value={el} key={el} />)}
                     </Picker> :
                     <TouchableOpacity onPress={onPressSex} style={{ width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:screen.width/21.2,paddingRight:screen.width/14.4}}>
-                    <Text  style={{fontFamily:'poppins',fontSize:screen.width/30,color:Colors.blue,fontSize:screen.width/24,fontWeight:'500'}}>
+                    <Text  style={{fontSize:screen.width/30,color:Colors.blue,fontSize:screen.width/24,fontWeight:'500'}}>
                       {sex?sex:sexTypes[0]}
                     </Text>
                     <Ionicons name="ios-arrow-down" size={screen.width/15} color={Colors.blue} onPress={onPressSex} />
