@@ -185,7 +185,6 @@ const[formState,disaptchFormState] = useReducer(formReducer,
                   title="Modifier"
                   titleStyle={styles.labelButton}
                   buttonStyle={styles.confirmedButtonStyle}
-                  onPress={()=>props.navigation.navigate('NewReseller')}
                   ViewComponent={LinearGradient} 
                   linearGradientProps={{
                       colors: [Colors.green, Colors.green],

@@ -154,6 +154,8 @@ return(
                                                             wilaya = {e.wilaya}
                                                             mark = {2.5}
                                                             navigate = {()=>props.navigation.navigate("ResellerHomeScreen")}
+                                                            localisation = {()=>props.navigation.navigate("NewPlace")}
+
                                                             activite = {e.activite}
                                                             />);
 
