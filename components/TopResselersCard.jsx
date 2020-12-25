@@ -42,7 +42,7 @@ const TopResselersCard = (props)=> {
 </View>
         <View style = {{width :"20%",marginRight : 25,marginTop :15,flexDirection :"row",justifyContent :"space-around"}}>
   
-        <Fontisto name="map-marker-alt" size={24} color="#80b265" />
+        <Fontisto name="map-marker-alt" size={24} color="#80b265" onPress = {props.localisation}  />
         <Fontisto name="shopping-store"
       size={24}
       color="#007184"

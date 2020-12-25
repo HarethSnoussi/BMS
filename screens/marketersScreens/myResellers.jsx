@@ -164,6 +164,8 @@ return(
                                                             mark = {2.5}
                                                             navigate = {()=>props.navigation.navigate("ResellerHomeScreen")}
                                                             activite = {e.activite}
+                                                            localisation = {()=>props.navigation.navigate("NewPlace")}
+
                                                             />);
 
                                                         })
