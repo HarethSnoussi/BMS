@@ -148,7 +148,7 @@ const saveDataToStorage = (token,userID,expirationDate,gender,id) => {
                       }}
                     />:<ActivityIndicator color={Colors.primary} />}
                     <TouchableOpacity>
-                     <Text style={styles.forgotPassword}>Mot de passe oublié?</Text>
+                     <Text style={styles.forgotPassword} onPress={()=>props.navigation.navigate('Places')}>Mot de passe oublié?</Text>
                     </TouchableOpacity>
                     <View style={styles.signupContainer}>
                       <Text style={styles.doYouHaveAnAccount}>Vous n'avez pas un compte? </Text>
