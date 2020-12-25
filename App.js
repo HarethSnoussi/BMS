@@ -9,7 +9,17 @@ import {Provider} from 'react-redux';
 import {enableScreens} from 'react-native-screens';
 import {AppLoading} from 'expo';
 import productsReducer from './store/reducers/productsReducer';
+import placesReducer from './store/places-reducer';
+import { init } from './helpers/db';
 
+init()
+  .then(() => {
+    console.log('Initialized database');
+  })
+  .catch(err => {
+    console.log('Initializing db failed.');
+    console.log(err);
+  });
 
 export default function App() {
 
@@ -18,7 +28,8 @@ export default function App() {
   //Create the store and the combine reducers
 
   const rootReducer = combineReducers({
-    products : productsReducer
+    products : productsReducer,
+    places: placesReducer
   });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

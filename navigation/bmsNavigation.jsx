@@ -20,6 +20,10 @@ import MyResellers from '../screens/marketersScreens/myResellers';
 import AddReseller from '../screens/marketersScreens/addReseller';
 import ResellerBmsStore from '../screens/productsScreens/resellerBmsStore';
 import AllProductsScreen from '../screens/productsScreens/allProductsScreen';
+import PlacesListScreen from '../screens/resellersScreens/PlacesListScreen';
+import PlaceDetailScreen from '../screens/resellersScreens/PlaceDetailScreen';
+import NewPlaceScreen from '../screens/resellersScreens/NewPlaceScreen';
+import MapScreen from '../screens/resellersScreens/MapScreen';
 
 import NewReseller from '../screens/resellersScreens/newReseller';
 
@@ -125,7 +129,11 @@ const BmsNavigation = createStackNavigator({
     AllProductsScreen ,
     
     MarketerParameters : MarketerParameters,
-    NewReseller: NewReseller
+    NewReseller: NewReseller,
+    Places: PlacesListScreen,
+    PlaceDetail: PlaceDetailScreen,
+    NewPlace: NewPlaceScreen,
+    Map: MapScreen
  },
  );
 
