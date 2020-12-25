@@ -6,7 +6,7 @@ import {Platform} from 'react-native';
 import {createMaterialBottomTabNavigator} from "react-navigation-material-bottom-tabs"
 
 
-import {Ionicons,  MaterialIcons,Foundation,Fontisto} from "@expo/vector-icons";
+import {AntDesign} from "@expo/vector-icons";
 import FirstScreen from '../screens/firstScreen';
 import ResellerHomeScreen from '../screens/resellersScreens/resellerHomeScreen';
 import MarketerHomeScreen from '../screens/marketersScreens/marketerHomeScreen';
@@ -14,22 +14,71 @@ import MarketerHomeScreen from '../screens/marketersScreens/marketerHomeScreen';
 
 import LoginScreen from '../screens/authentification/login';
 import SignupScreen from '../screens/authentification/signup';
+import MarketerProfile from '../screens/marketersScreens/marketerProfile';
+import MyResellers from '../screens/marketersScreens/myResellers';
+import AddReseller from '../screens/marketersScreens/addReseller';
 
 const marketerHomeElements = {
-    Magasin : {
+    Accueil : {
             screen : MarketerHomeScreen ,
             navigationOptions : {
               tabBarLabel : "Accueil" ,
               tabBarColor : "#fff",
               tabBarIcon : ({tintColor}) => {
-                return( <Ionicons name="ios-home"  
+                return( <AntDesign name="home"  
                 size = {22} color ={tintColor}/>);
                   },  
           },
          
   
             
-    } 
+    } ,
+
+    Profile : {
+      screen : MarketerProfile ,
+      navigationOptions : {
+        tabBarLabel : "Profile" ,
+        tabBarColor : "#fff",
+        tabBarIcon : ({tintColor}) => {
+          return( <AntDesign name="home"  
+          size = {22} color ={tintColor}/>);
+            },  
+    },
+   
+
+      
+} ,
+
+MyResellers : {
+  screen : MyResellers ,
+  navigationOptions : {
+    tabBarLabel : "Mes Revenderus" ,
+    tabBarColor : "#fff",
+    tabBarIcon : ({tintColor}) => {
+      return( <AntDesign name="home"  
+      size = {22} color ={tintColor}/>);
+        },  
+},
+
+
+  
+} ,
+
+Add : {
+  screen : AddReseller ,
+  navigationOptions : {
+    tabBarLabel : "Ajouter" ,
+    tabBarColor : "#fff",
+    tabBarIcon : ({tintColor}) => {
+      return( <AntDesign name="home"  
+      size = {22} color ={tintColor}/>);
+        },  
+},
+
+
+  
+} ,
+
   };
 
 

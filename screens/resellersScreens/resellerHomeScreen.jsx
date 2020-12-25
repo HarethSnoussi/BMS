@@ -16,38 +16,36 @@ const ResellerHomeScreen = (props) =>{
         <ScrollView style={styles.container}>
         <StatusBar hidden />
 
-        
+        <View style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",flexDirection :"row",justifyContent:"space-around"}}>
+            
 
-        {/* ********************************************************************************** */}
-  
-                <View style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",flexDirection :"row",justifyContent:"space-around"}}>
-                <View style = {{width : "50%" ,height:"100%",justifyContent :"center",alignItems:"center"}}>
-               
-                   <Text style = {{fontSize : 28,color :"#fff",textAlign: 'center', 
-    fontWeight: 'bold',}}>
-                          Prises et Intérepteurs
-                   </Text>
-                  
+            <View style = {{width : "60%" ,height:"100%"}}>
+               <Image source ={ require ("../../assets/bmsLogotr.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
+
+            </View>
+
+            <View style = {{width : "50%" ,height:"100%",justifyContent :"center",alignItems:"center",marginRight :15}}>
+           
+           <Text style = {{fontSize : 28,color :"#fff",textAlign: 'center', 
+fontWeight: 'bold',}}>
+                  Les Produits BMS
+           </Text>
+          
 <View style ={{marginTop : 15}}>
-                   <Button title ="Tous les elements"  color ="#80b265"/>
+           <Button title ="Tous les elements"  color ="#80b265"/>
 </View>
-                </View>
-
-
-                <View style = {{width : "40%" ,height:"100%"}}>
-                   <Image source ={ require ("../../assets/Prise_intérepteur.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
-
-                </View>
+        </View>
 
 
 
-                </View>
+            </View>
+
+    
 {/* ******************************************************************************************************************************* */}
 
 
                 <View style ={{height : screen.height*0.3 , backgroundColor :"#ffdd2e",width:"100%",flexDirection :"row",justifyContent:"space-between"}}>
             
-
                 <View style = {{width : "40%" ,height:"100%"}}>
                    <Image source ={ require ("../../assets/filetcable.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
 
@@ -95,29 +93,30 @@ fontWeight: 'bold',}}>
                 </View>
 
 {/* ********************************************************************************** */}
-<View style ={{height : screen.height*0.3 , backgroundColor :"#ebd2ef",width:"100%",flexDirection :"row",justifyContent:"space-around"}}>
-            
-
-            <View style = {{width : "40%" ,height:"100%"}}>
-               <Image source ={ require ("../../assets/bmsLogotr.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
-
-            </View>
-
-            <View style = {{width : "50%" ,height:"100%",justifyContent :"center",alignItems:"center",marginRight :15}}>
-           
-           <Text style = {{fontSize : 28,color :"#fff",textAlign: 'center', 
-fontWeight: 'bold',}}>
-                  Fil Et Cable Electrique
-           </Text>
-          
+    {/* ********************************************************************************** */}
+  
+    <View style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",flexDirection :"row",justifyContent:"space-around"}}>
+                <View style = {{width : "50%" ,height:"100%",justifyContent :"center",alignItems:"center"}}>
+               
+                   <Text style = {{fontSize : 28,color :"#fff",textAlign: 'center', 
+    fontWeight: 'bold',}}>
+                          Prises et Intérepteurs
+                   </Text>
+                  
 <View style ={{marginTop : 15}}>
-           <Button title ="Tous les elements"  color ="#80b265"/>
+                   <Button title ="Tous les elements"  color ="#80b265"/>
 </View>
-        </View>
+                </View>
+
+
+                <View style = {{width : "40%" ,height:"100%"}}>
+                   <Image source ={ require ("../../assets/Prise_intérepteur.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
+
+                </View>
 
 
 
-            </View>
+                </View>
         </ScrollView>
 
     )

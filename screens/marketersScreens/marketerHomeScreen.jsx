@@ -1,15 +1,11 @@
 import React ,{useEffect, useState,useCallback,useRef}  from 'react';
 import { StyleSheet, Text, View, ImageBackground , Image ,Dimensions , StatusBar,ActivityIndicator,ScrollView, TouchableOpacity,LogBox } from 'react-native';
 import Constants from 'expo-constants';
-import * as Notifications from 'expo-notifications';
-import * as Permissions from 'expo-permissions';
-import {Badge} from 'react-native-elements'
-
 import {Ionicons,  MaterialIcons,Foundation} from "@expo/vector-icons";
 import {Button ,Overlay} from 'react-native-elements';
 import { useDispatch,useSelector } from 'react-redux';
 import TopResselersCard from '../../components/TopResselersCard';
-
+import { SearchBar } from 'react-native-elements';
 
 
 const screen = Dimensions.get("window");
@@ -27,8 +23,18 @@ const MarketerHomeScreen = props =>{
      
         <ScrollView  >
   
-        <ImageBackground source = {require("../../assets/eclairage.jpg")} style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",justifyContent :"flex-end",alignItems :"flex-end"}}>
+        <ImageBackground source = {require("../../assets/eclairage.jpg")} style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",justifyContent :"space-between",alignItems :"flex-end"}}>
+        <SearchBar
+                placeholder="Wilaya"
+                containerStyle = {styles.searchBar}
+             
+                inputContainerStyle = {{
+                        borderRadius : screen.width/14.4
+                }}
+                lightTheme = {true}
+                searchIcon = {{color : "#ffdd2e", size : screen.width/14.4}}
 
+              />
 
       
              
@@ -44,55 +50,50 @@ const MarketerHomeScreen = props =>{
                 </ImageBackground>
   
  
-            <View style = {styles.textTopBarbers}>
-                  <Text style = {styles.bestText}>Meilleurs Revendeurs</Text> 
-                  <TouchableOpacity  
-                  onPress={() =>props.navigation.navigate("AllBarbers",{type : client[0].sex ==="Homme" ? "coiffeurs" : "coiffeuses",clientID,overCpt : allBookings.length})} >
-                  <Text style = {styles.showAll}>
-                  Tout Afficher
-                  </Text>
-                  </TouchableOpacity>
+            <View style = {styles.textTopMarketers}>
+                  <Text style = {styles.bestText}>Nos Revendeurs</Text> 
+              
                 </View>
              
-             <ScrollView  style ={styles.topBarbers}  showsHorizontalScrollIndicator  = {false} >
+             <ScrollView  style ={styles.topMarketers}  showsHorizontalScrollIndicator  = {false} >
 
 
            
 
                                                     <TopResselersCard 
                                                             
-                                                            name = "Hareth"
-                                                            surname = "Snousi"
+                                                            name = "1"
+                                                            surname = "Revendeur"
                                                             phone = "+213 557 11 54 51"
                                                             region = "Blida"
                                                             wilaya = "Blida"
                                                             mark = {2.5}
-                                                            
                                                             navigate = {()=>props.navigation.navigate("ResellerHomeScreen")}
+                                                            activite = "Electricien"
                                                             />
 
                                                 <TopResselersCard 
                                                             
-                                                            name = "Hareth"
-                                                            surname = "Snousi"
+                                                            name = "2"
+                                                            surname = "Revendeur"
                                                             phone = "+213 557 11 54 51"
-                                                            region = "Blida"
-                                                            wilaya = "Blida"
+                                                            region = "Kouba"
+                                                            wilaya = "Alger"
                                                             mark = {2.5}
-                                                            
+                                                            activite = "Quincaillerie"
                                                         
                                                             />
 
 
                                                 <TopResselersCard 
                                                             
-                                                            name = "Hareth"
-                                                            surname = "Snousi"
+                                                            name = "3"
+                                                            surname = "Revendeur"
                                                             phone = "+213 557 11 54 51"
-                                                            region = "Blida"
-                                                            wilaya = "Blida"
+                                                            region = "Adrar"
+                                                            wilaya = "Adrar"
                                                             mark = {2.5}
-                                                            
+                                                            activite = "Grossiste"
                                                         
                                                             />
                                                 
@@ -122,6 +123,7 @@ const styles= StyleSheet.create({
         
 
     },
+
     /////////////////////////////////////////////
     firstImage : {
       width : screen.width,
@@ -145,20 +147,16 @@ const styles= StyleSheet.create({
   
   },
   ////////////////////////////////////////////////////////
-   textTopBarbers : {
+   textTopMarketers : {
      flexDirection : "row",
      justifyContent : "space-between",
-      marginTop : screen.width/24,
+      marginVertical : screen.width/24,
       marginHorizontal : screen.width/24,
      
       alignItems :"center"
    },
-   topSalons : {
-    width : "100%",
-    height : screen.height * 0.4 ,
-  
-  },
-  topBarbers : {
+
+  topMarketers : {
    
     width : "100%",
    
@@ -191,9 +189,10 @@ const styles= StyleSheet.create({
     alignSelf : "center",
     borderRadius : screen.width/18 , 
     backgroundColor : "rgba(52, 52, 52, 0)" ,
-    marginTop : screen.width/24,
+    
     borderTopWidth : 0 , 
-    borderBottomWidth : 0 
+    borderBottomWidth : 0 ,
+    marginTop :15
     },
   
     firstTitle : {

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Dimensions,Image,ImageBackground,TouchableOpaci
 } from 'react-native'; 
 import {Button , Rating, AirbnbRating,Avatar} from "react-native-elements";
 import {useSelector } from 'react-redux';
-
+import {Ionicons,  MaterialIcons,Entypo,Fontisto} from "@expo/vector-icons";
 
 const screen = Dimensions.get("window");
 
@@ -11,21 +11,25 @@ const TopResselersCard = (props)=> {
 
     return(
 
-        <TouchableOpacity onPress={props.navigateToBarberProfil} style = {styles.barberContainer}>
-        <View  style = {styles.barberPictureContainer}>
+        <TouchableOpacity onPress={props.navigateToBarberProfil} style = {styles.marketerContainer}>
+        <View  style = {styles.marketerPictureContainer}>
 
-         <ImageBackground blurRadius = {1} resizeMode = "stretch" style = {{width : "100%" ,height : "100%" ,alignItems : "center" , justifyContent : "center"}} source = {require("../assets/magasin.jpg")}>  
+         <ImageBackground blurRadius = {0.5} resizeMode = "stretch" style = {{width : "100%" ,height : "100%" ,alignItems : "center" , justifyContent : "center"}} source = {require("../assets/magasin.jpg")}>  
            <Avatar source = {require("../assets/images.jpg")}
-              containerStyle = {styles.barberPicture}
+              containerStyle = {styles.marketerPicture}
               rounded
               size= "large"
               />
               </ImageBackground>
         </View>
-        <View style = {styles.barberInfos}>
-            <Text style = {styles.name}>{props.surname + " "+props.name}</Text>
-            <Text style = {styles.info}>{props.wilaya +" - "+props.region}</Text>
-            <Rating 
+        <View style = {styles.marketerInfo}>
+        <View style = {{alignSelf :"flex-start",marginTop : 35,marginLeft : 15,justifyContent :"space-around",}}>
+        <Text style = {styles.name}>{props.surname + " "+props.name}</Text>
+        <Text style = {styles.activite}>{props.activite}</Text>
+        <Text style = {styles.info}>{props.wilaya +" - "+props.region}</Text>
+        
+        
+        <Rating 
               imageSize={screen.width/18} 
               readonly
               startingValue= {props.mark === null ? 2.5 : props.mark}
@@ -35,21 +39,19 @@ const TopResselersCard = (props)=> {
               type='custom'
               ratingBackgroundColor={'#323446'}
               tintColor='#fff' />
+</View>
+        <View style = {{width :"30%",marginRight : 25,marginTop :15,flexDirection :"row",justifyContent :"flex-end"}}>
+  
+        <Fontisto name="shopping-store"
+      size={24}
+      color="#007184"
+      onPress = {props.navigate}
+    /> 
 
-        
-          
-                    
-            <Button 
-              buttonStyle ={styles.button}
-              title = "Magasin" 
-              titleStyle = {{color :"#fff",fontSize : screen.width/30}}
-              onPress = {props.navigate}
-              linearGradientProps={{
-                        colors: ['#007184', '#007188'],
-                        start: {x: 0, y: 0} ,
-                        end:{x: 1, y: 0}
-                    }}
-              />
+     
+        </View>
+
+           
 
         </View>
     
@@ -66,7 +68,7 @@ const styles= StyleSheet.create({
   ////////////////////////////////////////////////////////
 
   ///////////////////////////////////////////////////
-  barberContainer : {
+  marketerContainer : {
     height : screen.height*0.4,
     width : screen.width * 0.95,
     alignSelf : "center",
@@ -76,44 +78,62 @@ const styles= StyleSheet.create({
     borderWidth : 0.3,
    marginVertical : 5
   },
-  barberPictureContainer : {
+  marketerPictureContainer : {
     width : "100%",
-    height : "60%",
-    overflow : "hidden",
+    height : "55%",
+    
     alignItems : "center",
     justifyContent : "center",
   },
-  barberPicture : {
+  marketerPicture : {
    borderWidth :1,
    width:screen.width/5.5,
-   height:screen.width/5.5
+   height:screen.width/5.5,
+   position : "relative",
+   top : 65,
+   right : 135,
+   borderColor :"white" ,
+   borderWidth : 4
   },
-  barberInfos : {
+  marketerInfo : {
     height : "40%",
-    justifyContent : "space-around",
-    overflow : "hidden"
+    // justifyContent : "space-around",
+ 
+    flexDirection :"row" ,
+    justifyContent :"space-between",
+    
+    
   },
   rating : {
-  
+alignItems :"flex-start"
   },
    /////////////////////////////////////////////////
  info : {
-   
+   paddingVertical : 25 ,
     color : "#9d9da1",
-    alignSelf : "center",
+    
     fontSize : screen.width/30
  },
+
+ activite : {
+  paddingTop : 20 ,
+   color : "#9d9da1",
+   
+   fontSize : screen.width/30
+},
  name : {
     
     color:"black",
-    alignSelf : "center",
-    fontSize : screen.width/24
+ 
+    fontSize : screen.width/22,
+    fontWeight : 'bold',
+    
  },
  button : {
    alignSelf : "center",
    marginBottom:screen.width/72,
    paddingHorizontal:screen.width/14.4,
-   borderRadius:screen.width/18
+   borderRadius:screen.width/85
 }
   
   });
