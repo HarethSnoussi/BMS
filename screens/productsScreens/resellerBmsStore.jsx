@@ -22,7 +22,7 @@ const ResellerBmsStore = (props) =>{
     
     const allproducts = useSelector(state => state.products.products);
      
-  
+ 
 
 
 
@@ -50,7 +50,7 @@ const ResellerBmsStore = (props) =>{
                   
  
           
-            <TouchableOpacity  onPress = {()=>{props.navigation.navigate("AllProductsScreen",{category:"lampes"})}}   >
+            <TouchableOpacity  onPress = {()=>{props.navigation.navigate("AllProductsScreen",{category:"lampes",fromscreen :"BMS"})}}   >
                 <Text style = {styles.showAll}>
                 Tout Afficher
                 </Text>
@@ -70,6 +70,9 @@ const ResellerBmsStore = (props) =>{
                                     name = {e.name} 
                                     quantity ={e.quantity}
                                     img = {e.img}
+                                    can = {false}
+                                    company = "BMS"
+
                 />)
 
 
@@ -93,7 +96,7 @@ const ResellerBmsStore = (props) =>{
 
             
         
-          <TouchableOpacity onPress = {()=>{props.navigation.navigate("AllProductsScreen",{category:"intpri"})}}  >
+          <TouchableOpacity onPress = {()=>{props.navigation.navigate("AllProductsScreen",{category:"intpri",fromscreen :"BMS"})}}  >
               <Text style = {styles.showAll}>
               Tout Afficher
               </Text>
@@ -113,6 +116,7 @@ const ResellerBmsStore = (props) =>{
                                     name = {e.name} 
                                     quantity ={e.quantity}
                                     img = {e.img}
+                                    company = "BMS"
                     />)
 
 

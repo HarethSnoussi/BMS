@@ -22,6 +22,7 @@ import ResellerBmsStore from '../screens/productsScreens/resellerBmsStore';
 import AllProductsScreen from '../screens/productsScreens/allProductsScreen';
 
 import NewReseller from '../screens/resellersScreens/newReseller';
+import ManageProduct from '../screens/productsScreens/manageProduct';
 
 const marketerHomeElements = {
     Accueil : {
@@ -66,27 +67,11 @@ MyResellers : {
 },
 
 
-  
-} ,
-
-Add : {
-  screen : AddReseller ,
-  navigationOptions : {
-    tabBarLabel : "Ajouter" ,
-    tabBarColor : "#fff",
-    tabBarIcon : ({tintColor}) => {
-      return( <AntDesign name="home"  
-      size = {22} color ={tintColor}/>);
-        },  
-},
-
-
-  
-} ,
+}
 
   };
 
-
+  
   //Home page with Bottom Navigation Tab
 
 const marketerHomeTabs = createMaterialBottomTabNavigator(marketerHomeElements, 
@@ -123,7 +108,7 @@ const BmsNavigation = createStackNavigator({
     ResellerHomeScreen ,
     ResellerBmsStore  ,
     AllProductsScreen ,
-    
+    ManageProduct,
     MarketerParameters : MarketerParameters,
     NewReseller: NewReseller
  },

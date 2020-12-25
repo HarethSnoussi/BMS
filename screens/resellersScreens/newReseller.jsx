@@ -48,29 +48,7 @@ const NewReseller = (props) =>{
   
   
 
-//picker only iOS gender function 
-const onPressLevel = () =>{
 
-    const [hour,setHour] = useState(!currentServiceID?0:currentUserService.durationHour.toString());
-   const hours = ['0','1','2','3','4','5','6','7','8','9','10','11','12'];
-   const [minute,setMinute] = useState(!currentServiceID?0:currentUserService.durationMinute.toString());
-   const minutes = ['0','5','10','15','20','25','30','35','40','45','50','55']; 
-
- const sexIOS = ['Homme','Femme'];    
- ActionSheetIOS.showActionSheetWithOptions(
-   {
-     options: sexIOS,
-     cancelButtonIndex: -1
-   },
-   buttonIndex => {
-     if (buttonIndex === -1) {
-       // cancel action
-     } else {
-      setSex(sexIOS[buttonIndex]);
-     } 
-   }
- );  
-}
 
 const[formState,disaptchFormState] = useReducer(formReducer,
   {inputValues:{
