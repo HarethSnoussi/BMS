@@ -15,11 +15,13 @@ import MarketerHomeScreen from '../screens/marketersScreens/marketerHomeScreen';
 import LoginScreen from '../screens/authentification/login';
 import SignupScreen from '../screens/authentification/signup';
 import MarketerProfile from '../screens/marketersScreens/marketerProfile';
+import MarketerParameters from '../screens/marketersScreens/marketerParameters';
 import MyResellers from '../screens/marketersScreens/myResellers';
 import AddReseller from '../screens/marketersScreens/addReseller';
 import ResellerBmsStore from '../screens/productsScreens/resellerBmsStore';
 import AllProductsScreen from '../screens/productsScreens/allProductsScreen';
 
+import NewReseller from '../screens/resellersScreens/newReseller';
 
 const marketerHomeElements = {
     Accueil : {
@@ -120,7 +122,10 @@ const BmsNavigation = createStackNavigator({
     MarketerHome : marketerHomeTabs ,
     ResellerHomeScreen ,
     ResellerBmsStore  ,
-    AllProductsScreen 
+    AllProductsScreen ,
+    
+    MarketerParameters : MarketerParameters,
+    NewReseller: NewReseller
  },
  );
 
