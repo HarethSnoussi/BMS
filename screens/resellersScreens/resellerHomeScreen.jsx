@@ -32,7 +32,7 @@ fontWeight: 'bold',}}>
            </Text>
           
 <View style ={{marginTop : 15}}>
-           <Button title ="Tous les elements"  color ="#80b265"/>
+           <Button onPress = {()=>props.navigation.navigate("ResellerBmsStore")} title ="Tous les elements"  color ="#80b265"/>
 </View>
         </View>
 
@@ -110,7 +110,7 @@ fontWeight: 'bold',}}>
 
 
                 <View style = {{width : "40%" ,height:"100%"}}>
-                   <Image source ={ require ("../../assets/Prise_intérepteur.png") }style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
+                   <Image source ={ require ("../../assets/Prise_intérepteur.png") } style = {{height : "100%",width :"100%",resizeMode :"contain"}}/>
 
                 </View>
 

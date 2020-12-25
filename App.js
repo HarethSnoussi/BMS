@@ -8,19 +8,23 @@ import ReduxThunk from "redux-thunk";
 import {Provider} from 'react-redux';
 import {enableScreens} from 'react-native-screens';
 import {AppLoading} from 'expo';
+import productsReducer from './store/reducers/productsReducer';
 
 
 export default function App() {
 
+  enableScreens();
 
-//   const rootReducer = combineReducers({
-   
-//   });
+  //Create the store and the combine reducers
 
-// const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+  const rootReducer = combineReducers({
+    products : productsReducer
+  });
+
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
   return (
-    <BmsNavigation />
+    <Provider store={store}><BmsNavigation /></Provider> 
   );
 }
 

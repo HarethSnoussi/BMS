@@ -1,7 +1,7 @@
 import React ,{useEffect, useState,useCallback,useRef}  from 'react';
 import { StyleSheet, Text, View, ImageBackground , Image ,Dimensions , StatusBar,ActivityIndicator,ScrollView, TouchableOpacity,LogBox } from 'react-native';
 import Constants from 'expo-constants';
-import {Ionicons,  MaterialIcons,Foundation} from "@expo/vector-icons";
+import {Ionicons,  Feather,Foundation} from "@expo/vector-icons";
 import {Button ,Overlay} from 'react-native-elements';
 import { useDispatch,useSelector } from 'react-redux';
 import TopResselersCard from '../../components/TopResselersCard';
@@ -11,9 +11,57 @@ import { SearchBar } from 'react-native-elements';
 const screen = Dimensions.get("window");
 
 
-
+const resellers = [
+  {name:"1",surname:"Revendeur",phone : "+213 557 11 54 51",region : "Blida",wilaya : "Blida",mark : 2.5,activite : "Electricien"},
+  {name:"2",surname:"Revendeur",phone : "+213 552 12 54 51",region : "Blida",wilaya : "Blida",mark : 2.5,activite : "Grossiste"},
+  {name:"3",surname:"Revendeur",phone : "+213 552 12 54 51",region : "Adrad",wilaya : "Adrar",mark : 2.5,activite : "Quincaillerie"},
+  {name:"4",surname:"Revendeur",phone : "+213 552 12 54 51",region : "Kouba",wilaya : "Alger",mark : 2.5,activite : "Grossiste"},
+]
 const MarketerHomeScreen = props =>{
 
+  const [searchState,setSearchState] = useState("");
+
+  const [foundResellers,setFoundResellers] = useState([]);
+  const [foundRegions,setFoundRegions] = useState([]);
+
+
+  // const confirmedBookings = useSelector(state =>state.bookings.confirmedBookings);
+
+ 
+
+  const regions = ["Blida","Alger","Adrar"];
+
+useEffect(()=>{
+
+const a= regions.filter((e)=>{
+
+  const itemData = e ? e.toUpperCase() : ''.toUpperCase();
+  
+  const textData = searchState.toUpperCase();
+  
+  return itemData.startsWith(textData);
+
+})
+const resultResellers = resellers.filter(e=>e.wilaya.toUpperCase() === searchState.toUpperCase());
+
+setFoundResellers([...resultResellers]);
+
+searchState === "" ? setFoundRegions([]): setFoundRegions(a);
+
+},[searchState,setFoundResellers]);
+
+
+//on Press on search result 
+
+const searchResult = async (s)=>{
+
+setSearchState(s);
+
+
+}
+
+
+const searchedResult = searchState === "" ? resellers :  foundResellers ;
 
     return(
 
@@ -25,13 +73,16 @@ const MarketerHomeScreen = props =>{
   
         <ImageBackground source = {require("../../assets/eclairage.jpg")} style ={{height : screen.height*0.3 , backgroundColor :"#007184",width:"100%",justifyContent :"space-between",alignItems :"flex-end"}}>
         <SearchBar
-                placeholder="Wilaya"
+        placeholder ="Wilaya"
                 containerStyle = {styles.searchBar}
-             
+                onChangeText = {(text)=>setSearchState(text)}
                 inputContainerStyle = {{
                         borderRadius : screen.width/14.4
                 }}
                 lightTheme = {true}
+               
+                value={searchState}
+                onClear={text => setSearchState('')}
                 searchIcon = {{color : "#ffdd2e", size : screen.width/14.4}}
 
               />
@@ -48,56 +99,70 @@ const MarketerHomeScreen = props =>{
 
 
                 </ImageBackground>
-  
- 
+  {
+    searchedResult.length !==0 && 
             <View style = {styles.textTopMarketers}>
-                  <Text style = {styles.bestText}>Nos Revendeurs</Text> 
+              {
+                searchState === "" ?
+                <Text style = {styles.bestText}>Nos Revendeurs</Text> : <Text style = {styles.bestText}>Nos Revendeurs à : {searchState}</Text>
+
+              }
+                  
+          {    
+            searchedResult.length !==0 &&
+            <View  >
+                <Text style = {styles.showAll}>
+                Total : {searchedResult.length}
+                </Text>
+                </View>
+                
+                }
               
                 </View>
+}
+                {
+  searchState !== "" && foundResellers.length === 0 &&foundRegions.map((e,index)=>{
+return(
+  
+  <TouchableOpacity  onPress={()=>{searchResult(e)}} key ={index} style={styles.searchedRegion} >
+  <Feather name="arrow-right" size={screen.width/19.2} color="black" style = {{marginRight : "5%"}} />
+    <Text style = {{fontSize : screen.width/26}} >{e}</Text>
+   
+    </TouchableOpacity>
+
+ 
+)
+
+
+  })
+ 
+
+}
+                
              
              <ScrollView  style ={styles.topMarketers}  showsHorizontalScrollIndicator  = {false} >
 
+                                                      {
+                                                        searchedResult.map((e,index)=>{
 
-           
-
-                                                    <TopResselersCard 
-                                                            
-                                                            name = "1"
-                                                            surname = "Revendeur"
-                                                            phone = "+213 557 11 54 51"
-                                                            region = "Blida"
-                                                            wilaya = "Blida"
+                                                          return (    <TopResselersCard 
+                                                            key = {index}
+                                                            name = {e.name}
+                                                            surname = {e.surname}
+                                                            phone =  {e.phone}
+                                                            region = {e.region}
+                                                            wilaya = {e.wilaya}
                                                             mark = {2.5}
                                                             navigate = {()=>props.navigation.navigate("ResellerHomeScreen")}
-                                                            activite = "Electricien"
-                                                            />
+                                                            activite = {e.activite}
+                                                            />);
 
-                                                <TopResselersCard 
-                                                            
-                                                            name = "2"
-                                                            surname = "Revendeur"
-                                                            phone = "+213 557 11 54 51"
-                                                            region = "Kouba"
-                                                            wilaya = "Alger"
-                                                            mark = {2.5}
-                                                            activite = "Quincaillerie"
-                                                        
-                                                            />
-
-
-                                                <TopResselersCard 
-                                                            
-                                                            name = "3"
-                                                            surname = "Revendeur"
-                                                            phone = "+213 557 11 54 51"
-                                                            region = "Adrar"
-                                                            wilaya = "Adrar"
-                                                            mark = {2.5}
-                                                            activite = "Grossiste"
-                                                        
-                                                            />
+                                                        })
+                                            
+                                          }
                                                 
-   
+
+                                               
 
  </ScrollView>
   
@@ -187,13 +252,22 @@ const styles= StyleSheet.create({
    searchBar :{
     width : "80%" , 
     alignSelf : "center",
-    borderRadius : screen.width/18 , 
+    
     backgroundColor : "rgba(52, 52, 52, 0)" ,
     
     borderTopWidth : 0 , 
     borderBottomWidth : 0 ,
     marginTop :15
     },
+
+    searchedRegion : 
+    {
+      paddingVertical : screen.width/26,
+            borderBottomWidth:0.6,
+            flexDirection :"row",
+            paddingLeft : 10,
+            borderColor : "#c9c9c9"
+          },
   
     firstTitle : {
    

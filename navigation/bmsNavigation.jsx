@@ -17,6 +17,9 @@ import SignupScreen from '../screens/authentification/signup';
 import MarketerProfile from '../screens/marketersScreens/marketerProfile';
 import MyResellers from '../screens/marketersScreens/myResellers';
 import AddReseller from '../screens/marketersScreens/addReseller';
+import ResellerBmsStore from '../screens/productsScreens/resellerBmsStore';
+import AllProductsScreen from '../screens/productsScreens/allProductsScreen';
+
 
 const marketerHomeElements = {
     Accueil : {
@@ -115,8 +118,9 @@ const marketerHomeTabs = createMaterialBottomTabNavigator(marketerHomeElements,
 const BmsNavigation = createStackNavigator({
     
     MarketerHome : marketerHomeTabs ,
-    ResellerHomeScreen : ResellerHomeScreen,
-  
+    ResellerHomeScreen ,
+    ResellerBmsStore  ,
+    AllProductsScreen 
  },
  );
 
