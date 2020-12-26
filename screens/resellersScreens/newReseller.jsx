@@ -141,26 +141,7 @@ const[formState,disaptchFormState] = useReducer(formReducer,
                         /> 
                  </View>
 
-                 <View style={{flexDirection:'row',width:'90%',marginVertical:screen.width/72,alignItems:'center',alignSelf:'center'}}>
-                   <View style={{width:'50%'}}>
-                    <Text style={{fontSize:screen.width/30,color:'white',alignSelf:'flex-start'}}>Adresse actuelle</Text>
-                   </View>
-                   <InputProfile
-                        id="address" 
-                        placeholder='Activer GPS'
-                        placeholderTextColor={Platform.OS=='android'?'rgba(50,52,70,0.4)':'#d3d3d3'}
-                        keyboardType="default"
-                        onInputChange={inputChangeHandler}
-                        initialValue={''}
-                        initiallyValid={true}
-                        required
-                        minLength={3}
-                        autoCapitalize='sentences'
-                        widthView='50%'
-                        backgroundColor={Platform.OS=='ios'?Colors.blue:'#d3d3d3'}
-                        height={screen.width/9}
-                        /> 
-                 </View>
+                
                  
                  <View style={{flexDirection:'row',width:'90%',marginVertical:screen.width/72,alignItems:'center',alignSelf:'center'}}>
                    <View style={{width:'50%'}}>

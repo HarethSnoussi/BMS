@@ -11,7 +11,7 @@ const TopResselersCard = (props)=> {
 
     return(
 
-        <TouchableOpacity onPress={props.navigateToBarberProfil} style = {styles.marketerContainer}>
+        <TouchableOpacity onPress={props.navigateToResellerProfil} style = {styles.marketerContainer}>
         <View  style = {styles.marketerPictureContainer}>
 
          <ImageBackground blurRadius = {0.5} resizeMode = "stretch" style = {{width : "100%" ,height : "100%" ,alignItems : "center" , justifyContent : "center"}} source = {require("../assets/magasin.jpg")}>  

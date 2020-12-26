@@ -264,7 +264,7 @@ const sendCode = async () => {
                   title="Confirmer"
                   titleStyle={styles.labelButton}
                   buttonStyle={styles.confirmedButtonStyle}
-                  onPress={()=>props.navigation.navigate('MarketerHome')}
+                  onPress = {()=> props.navigation.navigate("navigation")}
                   ViewComponent={LinearGradient} 
                   linearGradientProps={{
                       colors: [Colors.secondary, Colors.secondary],
