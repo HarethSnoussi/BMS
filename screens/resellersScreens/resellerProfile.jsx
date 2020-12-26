@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, useReducer } from 'react';
 import { StyleSheet,View,ScrollView,KeyboardAvoidingView,TouchableWithoutFeedback,Keyboard,Text,Image,ImageBackground,StatusBar,TextInput,TouchableOpacity,Picker,ActionSheetIOS,Alert,ActivityIndicator,AsyncStorage,Dimensions,Platform} from 'react-native';
 import Colors from '../../constants/Colors';
-import {Button} from 'react-native-elements';
+import {Button,Rating} from 'react-native-elements';
 import CustomInput from '../../components/Input';
 import {MaterialIcons,MaterialCommunityIcons,Ionicons} from "@expo/vector-icons";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -89,8 +89,29 @@ const[formState,disaptchFormState] = useReducer(formReducer,
 
     return (
         <View style={styles.container}>
-         
-          <View style={{width:'90%'}}>
+         <View style={{height:'40%',width:'90%'}}>
+             <Text style={{color:'white',paddingBottom:5}}>Notez votre client à l'aide des 5 étoiles ci-dessous: </Text>
+         <Rating 
+              imageSize={screen.width/18} 
+              startingValue= {props.mark === null ? 2.5 : props.mark}
+              value = {props.mark === null ? 2.5 : props.mark}
+              style={styles.rating }
+              type='custom'
+              ratingBackgroundColor={Colors.primary}
+              tintColor='#fff' />
+              <TextInput
+                      style = {{...styles.addressInput}}
+
+                   
+
+                    
+                    multiline = {true}
+                    numberOfLines={4}
+                   
+                    placeholder = "Décrire votre revendeur ici!"
+                        />
+         </View>
+          <View style={{width:'90%',hegiht:'60%'}}>
                 <CustomInput
                       id='nom'
                       rightIcon={<Ionicons title="name" name ='ios-person' color={Colors.primary} size={23} />}
@@ -216,6 +237,21 @@ const styles = StyleSheet.create({
       fontSize:screen.width/22.5,
       textTransform:null,
      },
+     rating : {
+        alignItems :"flex-start"
+          },
+          addressInput :{ 
+            // borderColor: 'gray', borderWidth: 1,
+            backgroundColor :"white",
+            borderRadius : screen.width/36,
+            height :"60%",
+            backgroundColor : "#f0f0f0",
+            textAlignVertical: 'top',
+            paddingLeft : screen.width/24,
+            paddingTop : screen.width/24,
+            width : "100%",
+            marginTop:10
+        },
   });
   
 
