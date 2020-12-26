@@ -163,22 +163,7 @@ const[formState,disaptchFormState] = useReducer(formReducer,
                       placeholderTextColor='rgba(50,52,70,0.4)'
                       inputStyle={{fontSize:screen.width/24}}
                     />
-                <View style={{ width:'100%',borderWidth:1,borderRadius:screen.width/14.4,backgroundColor:'#d3d3d3',borderColor:sex!==sexTypes[0]?'#d3d3d3':Colors.primary,marginVertical:screen.width/120,height:screen.width/8,justifyContent:'center'}}>
-                {Platform.OS === 'android' ? 
-                    <Picker
-                    selectedValue={sex}
-                    onValueChange={itemValue => setSex(itemValue)}
-                    style={{fontSize:screen.width/30,color:Colors.blue,marginHorizontal:screen.width/25.7}}
-                    >
-                    {sexTypes.map(el=> <Picker.Item label={el} value={el} key={el} />)}
-                    </Picker> :
-                    <TouchableOpacity onPress={onPressSex} style={{ width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between',paddingLeft:screen.width/21.2,paddingRight:screen.width/14.4}}>
-                    <Text  style={{fontSize:screen.width/30,color:Colors.blue,fontSize:screen.width/24,fontWeight:'500'}}>
-                      {sex?sex:sexTypes[0]}
-                    </Text>
-                    <Ionicons name="ios-arrow-down" size={screen.width/15} color={Colors.blue} onPress={onPressSex} />
-                    </TouchableOpacity>}
-                </View>
+               
 
                 <Button
                   theme={{colors: {primary:Colors.primary}}} 

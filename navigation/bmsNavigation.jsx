@@ -24,6 +24,7 @@ import PlacesListScreen from '../screens/resellersScreens/PlacesListScreen';
 import PlaceDetailScreen from '../screens/resellersScreens/PlaceDetailScreen';
 import NewPlaceScreen from '../screens/resellersScreens/NewPlaceScreen';
 import MapScreen from '../screens/resellersScreens/MapScreen';
+import ResellerProfile from '../screens/resellersScreens/resellerProfile';
 
 import NewReseller from '../screens/resellersScreens/newReseller';
 import ManageProduct from '../screens/productsScreens/manageProduct';
@@ -118,7 +119,8 @@ const BmsNavigation = createStackNavigator({
     Places: PlacesListScreen,
     PlaceDetail: PlaceDetailScreen,
     NewPlace: NewPlaceScreen,
-    Map: MapScreen
+    Map: MapScreen,
+    ResellerProfile:ResellerProfile
  },
  );
 
